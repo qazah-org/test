@@ -1,0 +1,13 @@
+version: "3.7"
+services: 
+  broken-link-checker:
+    build:
+      context: .
+      dockerfile: broken-link-checker.Dockerfile
+      args:
+        - atcUsername=${ATC_USERNAME}
+        - atcPassword=${ATC_PASSWORD}
+    ports:
+      - "80:80"
+    depends_on: 
+      - hugo
